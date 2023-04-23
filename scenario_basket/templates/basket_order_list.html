@@ -1,0 +1,106 @@
+{% extends 'index_auth.html' %}
+
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Добавление клиента</title>
+    <link rel="stylesheet" href="/index_files/nicepage.css" media="screen">
+<link rel="stylesheet" href="/index_files/result.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/index_files/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/index_files/nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.0.3, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aguafina+Script:400">
+
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "/index_files/images/aircraft-g6cf744dd4_1280.png"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Авторизация">
+    <meta property="og:type" content="website">
+{% endblock %}
+
+{% block body %}
+    <section class="u-align-right u-clearfix u-image u-shading u-section-1" id="sec-5ee2">
+              <div class="u-clearfix u-sheet u-sheet-1">
+                <div class="u-align-center u-border-5 u-border-custom-color-2 u-custom-color-4 u-group u-radius-50 u-shape-round u-group-1">
+                  <div class="u-container-layout u-container-layout-1">
+                        <head>
+                            <style type="text/css">
+                               A {
+                                color: black;
+                               }
+                               A:visited {
+                                color: black;
+                               }
+                               a {
+                                text-decoration: none;
+                               }
+                            </style>
+                            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+                        </head>
+                        <center> <body>
+                            {% import 'basket_utils.html' as utils %}
+                          <br>
+                            <div class="container">
+                             <form action="" method="get">
+                                            <input class="u-border-4 u-border-custom-color-2 u-border-hover-custom-color-2 u-custom-color-4 u-hover-custom-color-3 u-radius-50 u-text-black" type="text" placeholder="Аэропорт вылета" name="Airport_out">
+                                            <input class="u-border-4 u-border-custom-color-2 u-border-hover-custom-color-2 u-custom-color-4 u-hover-custom-color-3 u-radius-50 u-text-black" type="text" placeholder="Аэропорт прилета" name="Airport_in">
+                                            <input class="u-border-4 u-border-custom-color-2 u-border-hover-custom-color-2 u-custom-color-4 u-hover-custom-color-3 u-radius-50 u-text-black" type="text" placeholder="Класс билета" name="T_class">
+                                            <input class="u-border-4 u-border-custom-color-2 u-border-hover-custom-color-2 u-custom-color-4 u-hover-custom-color-3 u-radius-50 u-text-black" type="date" placeholder="Дата вылета" name="Flight_date">
+                                            <input class="u-border-4 u-border-custom-color-2 u-border-hover-custom-color-2 u-custom-color-4 u-hover-custom-color-3 u-radius-50 u-text-black" pattern="^[A-Z]+-[0-9]+$" placeholder="Номер рейса TT-NN" name="Flight_num">
+                                            <input type="submit" name="action" class="u-active-custom-color-4 u-border-4 u-border-custom-color-2 u-btn u-btn-round u-btn-submit u-button-style u-custom-color-1 u-hover-custom-color-3 u-radius-32 u-text-custom-color-2 u-btn-1" value="Выбрать">
+
+                             </form>
+                            </div>
+                             <br>
+
+                            <div class="container">
+                                <div class="row">
+                                     <h5 align="left"> Клиент "{{ c_name['Surname'] }}"</h5>
+                                    <div class="center col-md-5">
+                                    <h2> Билеты </h2>
+                                        {% if items %}
+                                            {% for item in items %}
+                                                {{ utils.render_item(item, show_form=True) }}
+                                            {% endfor %}
+                                        {% else %}
+                                        <p>Нет товаров</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-5">
+                                        <h2 class="center"> Корзина</h2>
+                                        {% if basket %}
+                                            {% for item in basket %}
+                                                {{ utils.render_item(item, show_form=False) }}
+                                            {% endfor %}
+                                        {% else %}
+                                        <p>Корзина пустая</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a href="buy" class="container u-border-4 u-border-custom-color-2 u-border-hover-custom-color-2 u-btn u-btn-round u-button-style u-custom-color-4 u-hover-custom-color-3 u-radius-50 u-text-custom-color-2 u-btn-2">Купить&nbsp; </a>
+
+                                        <a href="clear" class="container u-border-4 u-border-custom-color-2 u-border-hover-custom-color-2 u-btn u-btn-round u-button-style u-custom-color-4 u-hover-custom-color-3 u-radius-50 u-text-custom-color-2 u-btn-2">Очистить корзину&nbsp; </a>
+
+                                         <a href="/basket/choose_client" class="container u-border-4 u-border-custom-color-2 u-border-hover-custom-color-2 u-btn u-btn-round u-button-style u-custom-color-4 u-hover-custom-color-3 u-radius-50 u-text-custom-color-2 u-btn-2">Выбрвть клиента&nbsp; </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </body></center>
+                  </div>
+                </div>
+                    <a href="/basket/choose_client" class="u-align-center u-border-4 u-border-custom-color-2 u-border-hover-custom-color-2 u-btn u-btn-round u-button-style u-custom-color-4 u-hover-custom-color-3 u-radius-50 u-text-custom-color-2 u-btn-1">Назад&nbsp; </a>
+                    <h4 class="u-text u-text-body-alt u-text-2"> once around the world</h4>
+              </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% macro render_item(item, show_form=False) %}
+<div style="border-style: solid; border-color: black; margin: 10px">
+    <p>
+        <span>Аэропорт вылета: <b>{{ item[0]['Airport_out'] }}</b></span>
+        <span>Аэропорт прилета: <b>{{ item[0]['Airport_in'] }}</b></span>
+        <span>Класс билета: <b>{{ item[0]['T_class'] }}</b></span>
+        <span>Дата вылета: <b>{{ item[0]['Flight_date'] }}</b></span>
+        <span>Номер рейса: <b>{{ item[0]['Flight_num'] }}</b></span>
+        <span>Цена: <b>{{ item[0]['T_price'] }}</b></span>
+    </p>
+    {% if show_form %}
+        <div>
+            <form action="" method="post">
+                <input type="submit" name="action" class="u-active-custom-color-4 u-border-4 u-border-custom-color-2 u-btn u-btn-round u-btn-submit u-button-style u-custom-color-1 u-hover-custom-color-3 u-radius-32 u-text-custom-color-2 u-btn-1" value="Добавить">
+
+                <input class="u-border-4 u-border-custom-color-2 u-border-hover-custom-color-2 u-custom-color-4 u-hover-custom-color-3 u-radius-50 u-text-black" type="number" placeholder="количество товара" name="ordered_number" value="{{ item[1] }}">
+                <input type="hidden" name="T_id" value="{{ item[0]['T_id'] }}">
+            </form>
+        </div>
+    {% else %}
+        <br>
+        <span>
+            Количество: {{ item[1] }}
+        </span>
+    {% endif %}
+</div>
+{% endmacro %}

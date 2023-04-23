@@ -1,0 +1,37 @@
+{
+  "customer": [
+    "auth.login_page",
+    "Select_sql.query_list",
+    "Select_sql.sql1",
+    "basket.basket",
+    "Purchased_tickets.purch"
+  ],
+  "employee": [
+    "",
+    "auth.login_page",
+    "Select_sql.query_list",
+    "Select_sql.sql1",
+    "Select_sql.sql2",
+    "reports.rep1",
+    "reports.rep2",
+    "basket.basket",
+    "Purchased_tickets.purch"
+  ],
+  "director":[
+    "",
+    "auth.login_page",
+    "Select_sql.query_list",
+    "Select_sql.sql1",
+    "Select_sql.sql2",
+    "Select_sql.sql3",
+    "reports.rep1",
+    "reports.rep2",
+    "reports.rep3",
+    "change_tables.change_index",
+    "basket.basket",
+    "Purchased_tickets.purch"
+  ],
+  "unauthorized": [
+    "auth.login_page"
+  ]
+}
